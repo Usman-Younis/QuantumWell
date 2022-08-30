@@ -1,0 +1,21 @@
+Theta = 0:0.1:90;
+
+%effeciency
+%FFN = (1 + cos(degtorad(Theta))).^2;
+%FFD = (pi + degtorad(Theta) - sin(2* degtorad(Theta)) / 2) / pi;
+%effeciency ends
+
+EF = FFN./FFD;
+
+%Form Factor
+FFN = sqrt((pi + degtorad(Theta) - sin(2 * degtorad(Theta)) / 2) / (4*pi));
+FFD = (1+ cos(degtorad(Theta))) / (2* pi);
+
+FF = FFN./FFD;
+RF = sqrt(FF.^2 - 1);
+
+figure();
+plot(Theta, FF);
+
+figure();
+plot(Theta, RF);
